@@ -1,0 +1,64 @@
+.nav-container {
+    background-color: #101725;
+    padding: 18px 18px;
+    display: flex;
+    height: 30px;
+    align-items: center;
+    justify-content: space-between;
+}
+.nav-logo-container {
+    display: flex;
+    font-size: 30px;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+.nav-heading {
+    font-family: 'Open Sans';
+    font-size: 1rem;
+    color: white;
+    font-weight: bold;
+}
+.menu-icon-mobile {
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+.nav-buttons-container {
+    display: none;
+    align-items: center;
+    gap: 8px;
+}
+.sign-up-btn {
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px; 
+    cursor: pointer;
+    &:hover {
+        background-color: rgb(96, 96, 168);
+        font-weight: bold;
+    }
+}
+.log-in-btn {
+    border: 1px solid blue;
+    border-radius: 10px;
+    padding: 5px;
+    width: 100px;
+    background: orange;
+    cursor: pointer;
+    &:hover {
+        background-color: yellow;
+        font-weight: bold;
+    }
+}
+
+
+@media screen and (min-width: 768px){
+    .menu-icon-mobile {
+        display: none;
+    }
+    .nav-buttons-container {
+        display: flex;
+    }
+}
