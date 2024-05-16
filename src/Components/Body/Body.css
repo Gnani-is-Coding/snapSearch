@@ -1,0 +1,31 @@
+.body-container {
+    background-color: #090917;
+    height: 100vh;
+    padding: 20px;
+}
+.search-input {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.search-input-container {
+    margin-top: 20px;
+    border: 2px solid #b1b2b3;
+    border-radius: 5px;
+    width: 350px;
+    max-width: 500px;
+    height: 30px;
+    padding: 3px 10px;
+    padding-right: 3px;
+    display: flex;
+}
+.input {
+    background-color: transparent;
+    outline: none;
+    border: none;
+    color: white;
+    height: 30px;
+    width: 100%;
+    font-weight: bold;
+    font-size: 15px;
+}
