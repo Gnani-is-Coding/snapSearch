@@ -57,7 +57,6 @@ function Body() {
         <div style={{marginTop: '50px', padding : '20px' }}>
             <div className='results-h1-container'>
                 <h1 className='search-results-h1'> Search results </h1>
-                <div className='search-results-h1'>left right</div>
             </div>
 
             <div>
