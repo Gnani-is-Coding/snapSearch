@@ -1,7 +1,9 @@
 .body-container {
     background-color: #090917;
-    height: 100vh;
+    padding-bottom: 30px;
     padding: 20px;
+    min-height: 100vh;
+    
 }
 .search-input {
     width: 100%;
@@ -28,4 +30,13 @@
     width: 100%;
     font-weight: bold;
     font-size: 15px;
+}
+.search-results-h1 {
+    color: #b1b2b3;
+    padding-left: 25px;
+}
+.results-h1-container {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
 }
