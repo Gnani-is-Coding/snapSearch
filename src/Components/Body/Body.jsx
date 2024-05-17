@@ -2,14 +2,17 @@ import React, { useEffect, useState } from 'react'
 import './Body.css'
 import { FaSearch } from "react-icons/fa";
 import SearchResults from '../SearchResults/SearchResults';
+import { Audio } from 'react-loader-spinner';
 
 function Body() {
     const [searchResult, setSearchResult] = useState([])
     const [inputVal, setInput] = useState('')
+    const [loading, setLoading] = useState(true)
 
     
 
     const apiCall = async () => {
+        setLoading(true)
         const endPoint = `https://api.unsplash.com/search/photos?page=1&query=${inputVal}`
         const accessKey = process.env.REACT_APP_ACCESS_KEY  //Always use the SYNTAX like, REACT_APP_ fro storing env var, 
         //so that client side react can understand that its a env var 
@@ -24,6 +27,7 @@ function Body() {
     
         const response = await fetch(endPoint, options)
         const data = await response.json()
+        setLoading(false)
         setSearchResult(data.results)
     }
 
@@ -55,7 +59,22 @@ function Body() {
                 <h1 className='search-results-h1'> Search results </h1>
                 <div className='search-results-h1'>left right</div>
             </div>
-            <SearchResults imagesData = {searchResult}/>
+
+            <div>
+                {loading ? 
+                <div className="loading-container">
+                <Audio
+                        height="80"
+                        width="80"
+                        radius="9"
+                        color="green"
+                        ariaLabel="loading"
+                        wrapperStyle
+                        wrapperClass
+                        /> 
+                </div> :
+                <SearchResults imagesData = {searchResult}/> }
+            </div>
         </div>
     </div>
   )

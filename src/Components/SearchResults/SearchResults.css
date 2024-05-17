@@ -13,3 +13,10 @@
     border: 1px solid rgb(134, 134, 197);
     
 }
+.popup-tooltip-container{
+    background: #101725;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 3px 20px;
+    color: #b1b2b3;
+}
