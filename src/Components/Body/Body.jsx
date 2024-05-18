@@ -4,6 +4,9 @@ import { FaSearch } from "react-icons/fa";
 import SearchResults from '../SearchResults/SearchResults';
 import { Audio } from 'react-loader-spinner';
 import DefaultSearchKeys from '../defaultSearchKeys';
+import { infinity } from 'ldrs';
+
+infinity.register()
 
 function Body() {
     const [searchResult, setSearchResult] = useState([])
@@ -57,7 +60,7 @@ function Body() {
 
         <DefaultSearchKeys setFunc = {setInput} />
 
-        <div style={{marginTop: '50px', padding : '20px' }}>
+        <div style={{marginTop: '10px', padding : '20px' }}>
             <div className='results-h1-container'>
                 {/* #TODO Add pagination for search results */}
                 <h1 className='search-results-h1'> Search results </h1>
@@ -66,16 +69,15 @@ function Body() {
             <div>
                 {loading ? 
                 <div className="loading-container">
-                <Audio
-                        height="80"
-                        width="80"
-                        radius="9"
-                        color="green"
-                        ariaLabel="loading"
-                        wrapperStyle
-                        wrapperClass
-                        /> 
-                </div> :
+                    <l-infinity
+                    size="55"
+                    stroke="4"
+                    stroke-length="0.15"
+                    bg-opacity="0.1"
+                    speed="1.3" 
+                    color="white" 
+                    ></l-infinity>
+                    </div> :
                 <SearchResults imagesData = {searchResult}/> }
             </div>
         </div>
