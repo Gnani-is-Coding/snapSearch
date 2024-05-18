@@ -3,6 +3,7 @@ import './Body.css'
 import { FaSearch } from "react-icons/fa";
 import SearchResults from '../SearchResults/SearchResults';
 import { Audio } from 'react-loader-spinner';
+import DefaultSearchKeys from '../defaultSearchKeys';
 
 function Body() {
     const [searchResult, setSearchResult] = useState([])
@@ -54,8 +55,11 @@ function Body() {
             </div>
         </div>
 
+        <DefaultSearchKeys/>
+
         <div style={{marginTop: '50px', padding : '20px' }}>
             <div className='results-h1-container'>
+                {/* #TODO Add pagination for search results */}
                 <h1 className='search-results-h1'> Search results </h1>
             </div>
 

@@ -1,0 +1,20 @@
+.default-main-container {
+    display: flex;
+    justify-content: center;;
+}
+.container {
+    margin-top: 30px;
+    background: #dd6afae5;
+    width: 90%;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    justify-content: space-around;
+}
+.btn {
+    color: #ffffff;
+    border: none; 
+    font-weight: bold;
+    background-color: transparent;
+    font-size: 1rem;
+}

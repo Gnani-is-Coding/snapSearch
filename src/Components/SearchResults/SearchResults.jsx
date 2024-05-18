@@ -13,6 +13,7 @@ function SearchResults({ imagesData}) {
         ({imagesData.map((obj) => (
                 <Popup
                   trigger={open => (
+                    //TODO use grids for images
                     <img src={obj.urls.regular} key ={obj.id} alt={obj.alt_description} className='image'/>
                   )}
                   position="top center"
