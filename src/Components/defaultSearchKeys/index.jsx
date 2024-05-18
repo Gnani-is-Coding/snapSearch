@@ -1,14 +1,15 @@
 import React from 'react'
 import './index.css'
 
-function DefaultSearchKeys() {
+function DefaultSearchKeys( {setFunc}) {
+    
   return (
     <div className='default-main-container'>
         <div className='container'>
-            <button className='btn'>Mountains</button>
-            <button className='btn'>Flowers</button>
-            <button className='btn'>Beaches</button>
-            <button className='btn'>Cities</button>
+            <button className='btn' onClick={() => setFunc('Mountains')}>Mountains</button>
+            <button className='btn' onClick={() => setFunc('Flowers')}>Flowers</button>
+            <button className='btn' onClick={() => setFunc('Beaches')}>Beaches</button>
+            <button className='btn' onClick={() => setFunc('Cities')}>Cities</button>
 
         </div>
     </div>

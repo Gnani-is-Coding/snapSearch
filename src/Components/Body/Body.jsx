@@ -55,7 +55,7 @@ function Body() {
             </div>
         </div>
 
-        <DefaultSearchKeys/>
+        <DefaultSearchKeys setFunc = {setInput} />
 
         <div style={{marginTop: '50px', padding : '20px' }}>
             <div className='results-h1-container'>
