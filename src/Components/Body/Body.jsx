@@ -2,22 +2,28 @@ import React, { useEffect, useState } from 'react'
 import './Body.css'
 import { FaSearch } from "react-icons/fa";
 import SearchResults from '../SearchResults/SearchResults';
-import { Audio } from 'react-loader-spinner';
 import DefaultSearchKeys from '../defaultSearchKeys';
 import { infinity } from 'ldrs';
 
 infinity.register()
 
+const pageNums = [
+    {id: '1', pageNum: 1},{id: '2', pageNum: 2},{id: '3', pageNum: 3},{id: '4', pageNum: 4},{id: '5', pageNum: 5},{id: '6', pageNum: 6},
+    {id: '7', pageNum: 7},{id: '8', pageNum: 8}, {id: '9', pageNum: 9},{id: '10', pageNum: 10}
+]
+
+
 function Body() {
     const [searchResult, setSearchResult] = useState([])
     const [inputVal, setInput] = useState('')
     const [loading, setLoading] = useState(true)
+    const [pageNum, setPageNum] = useState(1)
 
     
 
     const apiCall = async () => {
         setLoading(true)
-        const endPoint = `https://api.unsplash.com/search/photos?page=1&query=${inputVal}`
+        const endPoint = `https://api.unsplash.com/search/photos?page=${pageNum}&query=${inputVal}`
         const accessKey = process.env.REACT_APP_ACCESS_KEY  //Always use the SYNTAX like, REACT_APP_ fro storing env var, 
         //so that client side react can understand that its a env var 
     
@@ -40,14 +46,12 @@ function Body() {
             apiCall()
             
         console.log("api calling ...")
-        }, 1000)
+        }, 900)
 
         return () => {
             clearTimeout(timerId)
         }
-    }, [ inputVal ])
-
-    console.log(searchResult)
+    }, [inputVal,pageNum])
 
   return (
     <div className='body-container'>
@@ -62,8 +66,16 @@ function Body() {
 
         <div style={{marginTop: '10px', padding : '20px' }}>
             <div className='results-h1-container'>
-                {/* #TODO Add pagination for search results */}
                 <h1 className='search-results-h1'> Search results </h1>
+
+                <div className='pages-style'>
+                    {pageNums.map((obj,index) => (
+                        <div className='page-nums-container' onClick={() => setPageNum(obj.pageNum)}>
+                        <div className='page-nums' key={obj.id}>{obj.pageNum}</div>
+                        </div>
+                    )) }
+                    
+                </div>
             </div>
 
             <div>
