@@ -4,6 +4,8 @@ import { FaSearch } from "react-icons/fa";
 import SearchResults from '../SearchResults/SearchResults';
 import DefaultSearchKeys from '../defaultSearchKeys';
 import { infinity } from 'ldrs';
+import { FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft } from "react-icons/fa";
 
 infinity.register()
 
@@ -23,7 +25,7 @@ function Body() {
 
     const apiCall = async () => {
         setLoading(true)
-        const endPoint = `https://api.unsplash.com/search/photos?page=${pageNum}&query=${inputVal}`
+        const endPoint = `https://api.unsplash.com/search/photos?page=${pageNum}&per_page=12&query=${inputVal}`
         const accessKey = process.env.REACT_APP_ACCESS_KEY  //Always use the SYNTAX like, REACT_APP_ fro storing env var, 
         //so that client side react can understand that its a env var 
     
@@ -53,6 +55,8 @@ function Body() {
         }
     }, [inputVal,pageNum])
 
+    console.log(pageNum)
+
   return (
     <div className='body-container'>
         <div className='search-input'>
@@ -69,12 +73,14 @@ function Body() {
                 <h1 className='search-results-h1'> Search results </h1>
 
                 <div className='pages-style'>
+                   <div className='page-nums-container' style={{marginRight: '5px'}} onClick={() => setPageNum((prevNUm) =>
+                    (prevNUm - 1 < 1 ? 10 : prevNUm - 1 ) )}><FaArrowLeft/></div>
                     {pageNums.map((obj,index) => (
-                        <div className='page-nums-container' onClick={() => setPageNum(obj.pageNum)}>
-                        <div className='page-nums' key={obj.id}>{obj.pageNum}</div>
+                        <div className= { pageNum === obj.pageNum ? 'active-page-nums-container':'page-nums-container'} onClick={() => setPageNum(obj.pageNum)}>
+                        <div className='' key={obj.id}>{obj.pageNum}</div>
                         </div>
                     )) }
-                    
+                    <div className='page-nums-container' style={{marginLeft: '5px'}} onClick={() => setPageNum((prevNUm) => (prevNUm + 1 > 10 ? 1 : prevNUm + 1))}><FaArrowRight/></div>
                 </div>
             </div>
 

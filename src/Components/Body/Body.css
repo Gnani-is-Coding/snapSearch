@@ -59,7 +59,15 @@
     display: flex;
     margin: 1px;
     cursor: pointer;
-}
-.page-nums {
     color: #ffffff;
+}
+.active-page-nums-container {
+    border: 2px solid #b1b2b3;
+    border-radius: 5px;
+    padding: 3px;
+    display: flex;
+    margin: 1px;
+    cursor: pointer;
+    background-color: #ffffff;
+    color: black;
 }
